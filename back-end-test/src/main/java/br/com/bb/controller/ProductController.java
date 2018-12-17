@@ -28,8 +28,8 @@ public class ProductController {
 		this.categoryRepository = categoryRepository;
 	}
 
-	@RequestMapping(value = "/listByCategory/{category_id}", method = RequestMethod.GET)
-	public @ResponseBody List<Product> listByCategory(@PathVariable("category_id") Long category_id) throws Exception {
+	@RequestMapping(value = "/listByCategory/{categoryId}", method = RequestMethod.GET)
+	public @ResponseBody List<Product> listByCategory(@PathVariable("categoryId") Long category_id) throws Exception {
 		Optional<Category> category = categoryRepository.findById(category_id);
 		if (!category.isPresent()) {
 			throw new Exception("Category informed not found.");
